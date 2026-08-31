@@ -172,17 +172,6 @@ export default function FichaMedicaPage() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  if (!isMounted) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
-        <div className="flex items-center gap-3 text-medical-600 font-semibold text-sm">
-          <HeartPulse className="w-6 h-6 animate-pulse" />
-          <span>Iniciando Sistema de Ficha Médica...</span>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen flex flex-col justify-between bg-slate-50 text-slate-900">
       {/* Barra de Navegación / Header Principal */}

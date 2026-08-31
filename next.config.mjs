@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
-const repoName = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const rawRepo = process.env.NEXT_PUBLIC_BASE_PATH ?? (process.env.NODE_ENV === 'production' ? 'N1-U1-Actividad-pr-ctica-sumativa---Semana-3' : '');
+const repoName = rawRepo ? rawRepo.replace(/^\/|\/$/g, '') : '';
 
 const nextConfig = {
   output: 'export',
@@ -8,8 +8,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: repoName ? `/${repoName.replace(/^\/|\/$/g, '')}` : '',
-  assetPrefix: repoName ? `/${repoName.replace(/^\/|\/$/g, '')}/` : undefined,
+  basePath: repoName ? `/${repoName}` : '',
+  assetPrefix: repoName ? `/${repoName}/` : undefined,
   reactStrictMode: true,
 };
 
